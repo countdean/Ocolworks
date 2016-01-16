@@ -1,0 +1,198 @@
+
+
+<div ng-contoller="homeController" class="col s11">
+      
+
+      <div  class="row">
+        <div class="col s3" style="position: fixed;">
+      	  <a href="">
+          <div class=" input-field">
+          <div class="card" ng-click="showModal()">
+            <div class="card-image">
+              <img src="images/office2.jpg">
+              <span class="card-title" style="color:black"></span>
+            </div>
+            
+            <div  class="card-action">
+              <center>Create Project</center>
+            </div>
+          </div>
+          </div>
+          </a>
+          <div class="row input-field">
+              <input id="search" type="text" ng-model="searchProject" class="validate">
+              <label for="search">Search Project</label>
+          </div>
+
+            <div style="margin-top:15px;" class="row">
+              
+                <div class="switch">
+                <label>
+                <input  id="switch" ng-click="switchFnc()" type="checkbox">
+                <span class="lever"></span>
+                </label>
+                Completed Projects Only
+                </div>
+
+            </div>
+
+            <div style="margin-top:15px;" class="row">
+              
+                <div class="switch">
+                <label>
+                <input  id="switch1" ng-click="switchFnc1()" type="checkbox">
+                <span class="lever"></span>
+                </label>
+                Ongoing Projects Only
+                </div>
+
+            </div>
+
+            <div style="margin-top:15px;" class="row">
+              
+                <div   class="switch">
+                <label>
+                <input  id="switch2" ng-click="switchFnc2()" type="checkbox">
+                <span class="lever"></span>
+                </label>
+                Created Projects Only
+                </div>
+
+            </div>
+
+            <div style="margin-top:15px;" class="row">
+              
+                <div class="switch">
+                <label>
+                <input id="switch3" ng-click="switchFnc3()" type="checkbox">
+                <span class="lever"></span>
+                </label>
+                Assigned Projects Only
+                </div>
+
+            </div>
+
+            <div class="row input-field">
+              <p>
+              <input name="group1" type="radio" id="test1" />
+              <label for="test1">Sort by Due Date</label>
+              </p>
+              <p>
+              <input name="group1" type="radio" id="test2" />
+              <label for="test2">Sort by Start Date</label>
+              </p>
+            </div>  
+          </div>
+      	
+        <div ng-if="switchVal" class="offset-s3 col s9">
+          <div class="row">
+            <div ng-repeat="project in projects | filter:searchProject">   
+
+            <a ng-href="index.html#/{{ project.id }}" >
+            <div  class=" col s4 input-field">
+              <div class="card">
+                <div class="card-action">
+                  <center><span  style="color:black">{{ project.name }}</span></center>
+                </div>
+                <div class="blue divider"></div>
+                <div class="card-content">
+                  <h6>Date Started : {{ project.startDate }}<h6>
+                  <h6>Due Date : {{ project.dueDate }}</h6>
+                  <h6>Status : {{ project.project_confirm }}</h6>
+                </div>
+              </div>
+            </div>
+            </a>
+            </div>
+          </div>
+        </div>
+
+        <div ng-if="switchVali" class="offset-s3 col s9">
+          <div class="row">
+            <div ng-repeat="project in projects | filter:searchProject | filter: {project_confirm:statusCompleted}">   
+
+            <a ng-href="index.html#/{{ project.id }}" >
+            <div  class=" col s4 input-field">
+              <div class="card">
+                <div class="card-action">
+                  <center><span  style="color:black">{{ project.name }}</span></center>
+                </div>
+                <div class="blue divider"></div>
+                <div class="card-content">
+                  <h6>Date Started : {{ project.startDate }}<h6>
+                  <h6>Due Date : {{ project.dueDate }}</h6>
+                  <h6>Status : {{ project.project_confirm }}</h6>
+                </div>
+              </div>
+            </div>
+            </a>
+            </div>
+          </div>
+        </div>
+
+        <div ng-if="switchVali2" class="offset-s3 col s9">
+          <div class="row">
+            <div ng-repeat="project in projects | filter:searchProject | filter: {project_confirm:statusOngoing}">   
+
+            <a ng-href="index.html#/{{ project.id }}" >
+            <div  class=" col s4 input-field">
+              <div class="card">
+                <div class="card-action">
+                  <center><span  style="color:black">{{ project.name }}</span></center>
+                </div>
+                <div class="blue divider"></div>
+                <div class="card-content">
+                  <h6>Date Started : {{ project.startDate }}<h6>
+                  <h6>Due Date : {{ project.dueDate }}</h6>
+                  <h6>Status : {{ project.project_confirm }}</h6>
+                </div>
+              </div>
+            </div>
+            </a>
+            </div>
+          </div>
+        </div>
+
+
+
+      
+
+        
+        
+
+
+        <div id="modal1" class="modal">
+        <div class="modal-content">
+        <h4>Create Project</h4>
+          <form  class="col s12">
+            <div>
+              <div class="col s6">
+                <label for="icon_prefix">Project Name</label><br>
+                <input id="icon_prefix" type="text" ng-model="pName" autofocus required >
+
+                <div class="input-field col s12">
+                  <textarea id="textarea1" ng-model="pDesc" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Textarea</label>
+                </div>
+              </div>
+              <div class="col s6">
+
+                <label for="icon_prefix" >Due Date</label>
+                <input id="icon_prefix" type="date" ng-model="pDue" required >
+              </div>
+
+          
+        
+          </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+        <button class="z-depth-3 blue lighten-1 waves-effect waves-light btn right"  ng-click="createProject()">Create</button>
+        </div>
+        </div>
+
+
+</div>
+
+
+

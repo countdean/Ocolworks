@@ -1,0 +1,163 @@
+<div class="row">
+    <div ng-controller="fullprofileController" class="col s6">
+        <div class="row">
+            <h3>Account Settings</h3>
+            <div class="blue divider">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col s6">
+              	<div class="col s12">
+              	<img src="images/alodia.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+              	</div>
+            </div>
+
+            <div class="col s6">
+              	<div class="input-field col s12">
+                	<input value="{{user.name}}" id="name" type="text" class="validate">
+                	<label class="active" for="name">Name</label>
+              	</div>
+              	<div class="input-field col s12">
+                	<input value="{{user.email}}" id="email" type="email" class="validate">
+                	<label class="active" for="email">Email</label>
+              	</div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col s6">
+              	<div class="input-field col s12">
+                	<input value="{{user.password}}" id="password" type="password" class="validate">
+                	<label class="active" for="password">Password</label>
+              	</div>
+            </div>
+
+            <div class="col s6">
+              	<div class="input-field col s12">
+                	<input value="{{user.phonenumber}}" id="telno" type="tel" class="validate">
+                	<label class="active" for="telno">Phone Number</label>
+              	</div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col s6 offset-s6">
+              <a class="waves-effect waves-light btn blue right" >Change</a>
+            </div>
+
+        </div>
+
+
+ 
+    </div>
+  
+      
+        <div class="col s6">
+
+          	<div class="row">
+            	<h3>Account Appraisal</h3>
+            	<div class="blue divider">
+            	</div>
+          	</div>
+        </div>
+</div>
+
+
+<div ng-hide="showproject" class="row">
+	<div class="blue divider"></div>
+	<div class="row" >
+		<ul class="pagination">
+		<div class="col s6 center-align">
+			<li class="blue lighten-2 active" href="" ng-click="showproject=false; showtask=true">
+				All Projects
+			</li>
+		</div>
+		<div class="col s6 center-align">
+			<li  class="waves-effect" href="" ng-click="showproject=true; showtask=false">
+				All Tasks
+			</li>
+		</div>
+		</ul>
+	</div>
+
+
+        <div class="row">
+
+            <table class="striped">
+              <thead>
+                <tr>
+                  <th data-field="id">Project  Name</th>
+                  <th data-field="name">Start Date</th>
+                  <th data-field="price">Due Date</th>
+                  <th data-field="price">Task</th>
+                  <th data-field="price">Status</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="projectinfo in projectinfos">
+                  <td>{{projectinfo.Title}}</td>
+                  <td>{{projectinfo.Date_Started}}</td>
+                  <td>{{projectinfo.Due_Date}}</td>
+                  <td>{{projectinfo.Task}}</td>
+                  <td>{{projectinfo.Status}}</td>
+                </tr>
+              </tbody>
+         	</table>
+
+     	</div>
+</div>
+
+<div ng-hide="showtask" class="row">
+    <div class="blue divider"></div>
+    <div class="row" >
+		<ul class="pagination">
+		<div class="col s6 center-align">
+			<li class="waves-effect" href="" ng-click="showproject=false; showtask=true">
+				All Projects
+			</li>
+		</div>
+		<div class="col s6 center-align">
+			<li  class="blue lighten-2 active " href="" ng-click="showproject=true; showtask=false">
+				All Tasks
+			</li>
+		</div>
+		</ul>
+	</div>
+
+
+        <div class="row">
+
+            <table class="striped">
+              <thead>
+                <tr>
+                  <th data-field="id">Task Name</th>
+                  <th data-field="name">Project</th>
+                  <th data-field="price">Start Date</th>
+                  <th data-field="price">Due Date</th>
+                  <th data-field="price">Prerequisite</th>
+                  <th data-field="price">Priority</th>
+                  <th data-field="price">Status</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr ng-repeat="taskinfo in taskinfos">
+                  <td>{{taskinfo.Name}}</td>
+                  <td>{{taskinfo.Project}}</td>
+                  <td>{{taskinfo.Date_Started}}</td>
+                  <td>{{taskinfo.Due_Date}}</td>
+                  <td>{{taskinfo.Prerequisite}}</td>
+                  <td>{{taskinfo.Priority}}</td>
+                  <td>{{taskinfo.Status}}</td>
+                </tr>
+              </tbody>
+         	</table>
+
+     	</div>
+</div>

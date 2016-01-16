@@ -1,0 +1,102 @@
+
+      <div class="navbar-fixed" ng-controller="navController">
+         <nav>
+            <div id="topbar" class="nav-wrapper blue lighten-1">
+            <a href="" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+               <li class=""><a href="index.html#/">Dashboard</a></li>
+               <li><a  href="">Domain</a></li>
+               <li><a class="dropdown-button" href="" data-activates="dropdown1"> &nbsp
+            <span class="material-icons right" style="margin-top:15px;">arrow_drop_down</span></a></li>
+            </ul>
+            </div>
+         </nav>
+      </div>
+
+      <ul id="dropdown1" class="dropdown-content">
+         <li><a href="index.html#/profile">Profile</a></li>
+         <li class="divider"></li>
+         <li><a href="#!">Settings</a></li>
+         <li class="divider"></li>
+         <li><a href="#!">Theme</a></li>
+      </ul>
+
+<!-- navbar end -->
+
+
+<!-- side bar -->
+<div id="slide-out" class="side-nav">
+    <div ng-controller="profileController">
+         <div id="cardmain" class="card">
+            <div id="cardpic" class="card-image">
+               <img id="chatpic" src="{{user[0].Image}}">
+               <span id="namepic" class="card-title">{{user[0].FName + " " + user[0].LName}}</span>
+            </div>
+         </div>
+      <ul>
+      <li>
+         <div class="row">
+            <div class="col s2">
+              <span class="material-icons prefix">email</span>
+            </div>
+            <div class="col s5" style="margin-top:3px;">
+              <h6>Message</h6> 
+            </div>
+            <div class="col s5" style="margin-top:10px;">
+              <span id="nummessage" class="new badge blue">{{user[0].Message}}</span>
+            </div>
+         </div>
+        </li>
+        <li style="margin-top:-13px">
+         <div class="row">
+            <div class="col s2">
+              <span class="material-icons prefix">announcement</span>
+            </div>
+            <div class="col s5" style="margin-top:3px;">
+              <h6>Announcement</h6> 
+            </div>
+            <div class="col s5" style="margin-top:10px;">
+              <span id="numannounce" class="new badge blue">{{user[0].Announcement}}</span>
+            </div>
+         </div>
+        </li>
+      </ul>
+    </div>
+      <div class="divider" style="margin-bottom:5px;"></div>
+
+      <div class="row">
+        <div class="col s11" >
+          <input ng-model="searchText" type="text" placeholder="Search">
+        </div>
+      </div>
+
+      <div ng-controller="peopleController" style="overflow-y:scroll; height:300px">
+        <p></p>
+          <ul>
+            <li ng-repeat="student in students | filter:searchText" style="margin-top:-10px;">
+              <div class="row">
+                <div class="col s3" style="margin-top:3px; margin-left:-15px">
+                  <img class="circle responsive-img" src="{{student.Image}}">
+                </div>
+                <div class="col s9" style="margin-top:5px; margin-left:0px; style=margin-right:0px; padding:0px">
+                  <h6 class="chatuser"> {{ student.Name | strLimit: 18}} </h6> 
+                </div>
+              </div>
+            </li>
+          <ul>
+      </div> 
+
+
+    <div class="divider" ></div>
+
+    
+
+  </div>
+
+      <script type="text/javascript">
+      $(".button-collapse").sideNav();
+
+      
+
+      
+    </script>

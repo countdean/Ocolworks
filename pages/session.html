@@ -1,0 +1,71 @@
+  <div class="blue" ng-contoller="loginController" >
+    
+    <div class="row">
+    	<div class="col s9">
+    		<div class="row" style="" >
+    			<center>
+    			<h1 class="thin " style="margin-bottom:0px; padding-bottom:0px;">OCOLWORKS</h1><br>
+    			<h4 class="thin " style="margin-top:0px; padding-top:0px;">Online Collaborative Workspace</h4>
+    			
+    			<div style="margin-top:-100px">
+    				<img class="responsive-img" src="images/items.png">
+    			</div>
+    			</center>
+    		</div>
+
+    		</div>
+      	
+      	<div  class="col s3 " style="color:black;" >
+      		<div class="row" style="margin-top:5px">
+      			<div class="right col s6" ng-animate="show" ng-show="loginbtn" ng-click="loginpanel=true; loginbtn=false; signupbtn=true; signuppanel=false;">
+      				<a class="z-depth-3 blue lighten-1 waves-effect waves-light btn right">Login</a>
+      			</div>
+      			<div class="right col s6" ng-animate="show" ng-show="signupbtn" ng-click="signuppanel=true; signupbtn=false; loginbtn=true; loginpanel=false; ">
+      				<a class="z-depth-3 blue lighten-1 waves-effect waves-light btn right">Signup</a>
+      			</div>
+
+      		</div>
+      		<div class="white divider" ></div>
+          <form  class="col s12">
+          	<div class="card-panel z-depth-3" ng-animate="show" ng-show="loginpanel">
+          		
+          			<label for="icon_prefix">Email</label><br>
+      				  <input id="icon_prefix" type="email" ng-model="email" autofocus required >
+          			<label for="icon_prefix" >Password</label>
+          			<input id="icon_prefix" type="password" ng-model="password" required >
+                <h6 style="color:red;">{{ errormsg }}&nbsp</h6>
+
+					<button class="z-depth-3 blue lighten-1 waves-effect waves-light btn right"  ng-click="sendPost()">Login</button>
+				
+        	</div>
+          </form>
+
+                    <form class="col s12">
+          	  <div class="card-panel z-depth-3" ng-animate="show" ng-show="signuppanel">
+          			<label for="icon_prefix">Name</label><br>
+      				  <input id="icon_prefix" type="text" ng-model="newName" autofucos required >
+          			<label for="icon_prefix">Email</label><br>
+      				  <input id="icon_prefix" type="email" ng-model="newEmail" required >
+          			<label for="icon_prefix">Password</label>
+          			<input id="icon_prefix" type="password" ng-model="newPassword" required >
+                <label for="icon_prefix">Confirm Password</label>
+                <input id="icon_prefix" type="password" ng-model="newPasswordCon" required >
+          			<label for="icon_prefix">Phone Number</label><br>
+      				  <input id="icon_prefix" type="tel" ng-model="newNumber" required >
+              <h6 style="color:red;">{{errorSignup}}&nbsp</h6>
+					<button class="z-depth-3 blue lighten-1 waves-effect waves-light btn right" ng-click="signupUser()">Signup</button>
+				
+        	</div>
+          </form>
+
+      	</div>
+
+      	</div>
+    </div>
+
+
+
+
+
+
+			
